@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaIntel Demo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- HERO -->
+    <div class="hero">
+        <h1>AquaIntel 💧</h1>
+        <p>Smart Water Quality Monitoring Platform</p>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="card">
+        <h2>🚀 About AquaIntel</h2>
+        <p>
+            AquaIntel is a community-driven platform that helps people test, track,
+            and analyze water quality in their area using simple and affordable tools.
+        </p>
+    </div>
+
+    <!-- PRODUCT -->
+    <div class="card">
+        <h2>🛒 Testing Kit</h2>
+        <p>Includes: TDS Meter, pH Meter, DO Sensor, Hardness Test Strips</p>
+        <p class="highlight">Affordable • Easy to Use • Instant Results</p>
+    </div>
+
+    <!-- FORM -->
+    <div class="card">
+        <h2>🧪 Test Your Water</h2>
+
+        <form method="POST">
+            <div class="grid">
+                <input type="text" name="pincode" placeholder="Pincode" required>
+                <input type="text" name="source" placeholder="Water Source (Well, River...)" required>
+
+                <input type="number" step="any" name="tds" placeholder="TDS (ppm)" required>
+                <input type="number" step="any" name="ph" placeholder="pH Level" required>
+
+                <input type="number" step="any" name="hardness" placeholder="Hardness (mg/L)" required>
+                <input type="number" step="any" name="do" placeholder="Dissolved Oxygen (mg/L)" required>
+            </div>
+
+            <button type="submit">Analyze Water Quality</button>
+        </form>
+
+        {% if result %}
+            <div class="result">
+                Result: {{ result }}
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- DATA -->
+    <div class="card center">
+        <h2>📊 Community Insights</h2>
+        <p>Explore water quality data submitted by users in your area.</p>
+        <a href="/data" class="btn">View Data</a>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>AquaIntel Demo • Built for Smart Water Awareness</p>
+    </div>
+
+</div>
+
+</body>
+</html>
